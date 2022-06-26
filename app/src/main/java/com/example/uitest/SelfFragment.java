@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
-public class SelfFragment extends Fragment {
-
+public class SelfFragment extends Fragment implements OnChangedListener{
+    final App app=new App();
     private static final int requestCode = 2;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +57,8 @@ public class SelfFragment extends Fragment {
                 Toast.makeText(getActivity(),"暂不开放",Toast.LENGTH_SHORT).show();
             }
         });
+        SlipButton myBtn =(SlipButton) view.findViewById(R.id.slipBtn);
+        myBtn.SetOnChangedListener(this);
         return view;
     }
 
@@ -67,5 +69,17 @@ public class SelfFragment extends Fragment {
             Toast.makeText(getActivity(),"test",Toast.LENGTH_SHORT).show();
         }
     }*/
-
+    public void OnChanged(boolean CheckState) {//当按钮状态被改变时
+        // TODO Auto-generated method stub
+//        Log.d("--22222--", String.valueOf(CheckState));
+        app.writeSdcard(String.valueOf(CheckState));
+        if(CheckState){
+//            Log.d("--ssss--", app.readSdcard());
+//            this.stopService(new Intent(this,PushService.class));
+            Toast.makeText(getActivity(),"打开了..." , Toast.LENGTH_SHORT).show();}
+        else {
+//            Log.d("--ssss--",app.readSdcard());
+            getActivity().startService(new Intent(getActivity(),PushService.class));
+            Toast.makeText(getActivity(),"关闭了..." , Toast.LENGTH_SHORT).show();}
+    }
 }

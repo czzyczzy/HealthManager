@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/array_adapter.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/body_state.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/fragment_self.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/recipe_recommended.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/self_fragment.xml" value="0.1875" />
+        <entry key="..\:/10090/ANDROID/HealthManagement/app/src/main/res/layout/self_info.xml" value="0.1875" />
         <entry key="..\:/UITest/app/src/main/res/drawable-v24/ic_blood_pressure.xml" value="0.229" />
         <entry key="..\:/UITest/app/src/main/res/drawable-v24/ic_default_head.xml" value="0.229" />
         <entry key="..\:/UITest/app/src/main/res/drawable-v24/ic_menu_news.xml" value="0.229" />
