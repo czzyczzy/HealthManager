@@ -3,6 +3,7 @@ import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 
+import android.Manifest;
 import android.os.Message;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
@@ -92,7 +93,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        //this.startService(new Intent(this,PushService.class));
+        this.startService(new Intent(this,PushService.class));
+        checkPermission();
         //数据库
         dbsqLiteOpenHelper = new DBclass(this,"Ding.db",null,3);
         final SQLiteDatabase db1 = dbsqLiteOpenHelper.getWritableDatabase();
@@ -466,4 +468,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             }
         }
     };
+    public static final int REQUEST_EXTERNAL_STORAGE = 1;
+    public static String[] PERMISSIONS_STORAGE = {"android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE"};
+    public void checkPermission() {
+        //检查权限（NEED_PERMISSION）是否被授权 PackageManager.PERMISSION_GRANTED表示同意授权
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission
+                    .WRITE_EXTERNAL_STORAGE)) {
+                Toast.makeText(this, "请开通相关权限，否则无法正常使用本应用！", Toast.LENGTH_SHORT).show();
+            }
+            //申请权限
+            ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
+
+        } else {
+            Toast.makeText(this, "已授权成功！", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

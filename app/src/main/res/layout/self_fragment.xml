@@ -98,9 +98,29 @@
         </TextView>
 
     </LinearLayout>
-<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        style="@style/circle_bead_layout">
+
+        <TextView
+            android:id="@+id/slide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="  免打扰"
+            android:textSize="20sp">
+        </TextView>
+
     </LinearLayout>
--->
+
+    <com.example.uitest.SlipButton
+        android:id="@+id/slipBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--
+        </LinearLayout>
+    -->
 
 
 
